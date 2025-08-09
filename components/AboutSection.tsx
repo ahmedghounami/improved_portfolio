@@ -53,7 +53,7 @@ export default function AboutSection() {
                             viewport={{ once: true }}
                             className="text-lg text-gray-300 mb-12 leading-relaxed"
                         >
-                            I&lsquo;m a passionate full-stack developer currently studying at 1337 School, where I&lsquo;ve embraced the
+                            I&apos;m a passionate full-stack developer currently studying at 1337 School, where I&apos;ve embraced the
                             peer-to-peer learning methodology. My journey in software development is driven by curiosity and a desire
                             to create meaningful solutions that make a difference.
                         </motion.p>
