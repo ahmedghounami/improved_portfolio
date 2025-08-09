@@ -58,7 +58,7 @@ export default function ContactSection() {
                                 icon: <Linkedin className="w-6 h-6" />,
                                 label: "LinkedIn",
                             },
-                        ].map((social, index) => (
+                        ].map((social) => (
                             <motion.a
                                 key={social.label}
                                 href={social.href}
@@ -66,7 +66,7 @@ export default function ContactSection() {
                                 rel="noopener noreferrer"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
+                                transition={{ delay: 0.1 }}
                                 viewport={{ once: true }}
                                 whileHover={{ scale: 1.1, y: -5 }}
                                 whileTap={{ scale: 0.9 }}
