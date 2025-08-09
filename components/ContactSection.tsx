@@ -16,11 +16,11 @@ export default function ContactSection() {
                 >
                     <h2 className="text-4xl md:text-6xl font-bold mb-6">
                         <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                            Let&lsquo;s Work Together
+                            Let&apos;s Work Together
                         </span>
                     </h2>
                     <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-                        I&lsquo;m always excited to work on new projects and collaborate with amazing people. Let&lsquo;s create something
+                        I&apos;m always excited to work on new projects and collaborate with amazing people. Let&apos;s create something
                         extraordinary together!
                     </p>
 
