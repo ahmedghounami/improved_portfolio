@@ -32,7 +32,9 @@ export default function ContactSection() {
                             className="flex items-center gap-3 bg-black/50 backdrop-blur-xl border border-blue-500/20 rounded-2xl px-6 py-4 hover:border-blue-400/40 transition-all group"
                         >
                             <Mail className="w-5 h-5 text-blue-400 group-hover:scale-110 transition-transform" />
-                            <span className="text-white group-hover:text-blue-400 transition-colors">ahmedghounami0@gmail.com</span>
+                            <span className="text-white group-hover:text-blue-400 transition-colors">
+                                ahmedghounami0@gmail.com
+                            </span>
                         </motion.a>
 
                         <motion.a
@@ -42,7 +44,9 @@ export default function ContactSection() {
                             className="flex items-center gap-3 bg-black/50 backdrop-blur-xl border border-blue-500/20 rounded-2xl px-6 py-4 hover:border-blue-400/40 transition-all group"
                         >
                             <Phone className="w-5 h-5 text-blue-400 group-hover:scale-110 transition-transform" />
-                            <span className="text-white group-hover:text-blue-400 transition-colors">+212 620399298</span>
+                            <span className="text-white group-hover:text-blue-400 transition-colors">
+                                +212 620399298
+                            </span>
                         </motion.a>
                     </div>
 
