@@ -58,7 +58,7 @@ export default function ContactSection() {
                                 icon: <Linkedin className="w-6 h-6" />,
                                 label: "LinkedIn",
                             },
-                        ].map((social) => (
+                        ].map((social, index) => (
                             <motion.a
                                 key={social.label}
                                 href={social.href}
