@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Code, Server, Database } from "lucide-react"
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card"
+
 export default function AboutSection() {
     const features = [
         {
@@ -42,7 +43,9 @@ export default function AboutSection() {
                         viewport={{ once: true }}
                         className="text-4xl md:text-6xl font-bold mb-6"
                     >
-                        <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">About Me</span>
+                        <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                            About Me
+                        </span>
                     </motion.h2>
 
                     <div className="max-w-4xl mx-auto">
@@ -59,7 +62,7 @@ export default function AboutSection() {
                         </motion.p>
 
                         <div className="grid md:grid-cols-3 gap-8">
-                            {features.map((item, index) => (
+                            {features.map((item) => (
                                 <motion.div
                                     key={item.title}
                                     initial={{ opacity: 0, y: 50 }}
