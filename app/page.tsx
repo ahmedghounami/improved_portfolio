@@ -87,7 +87,7 @@ export default function Portfolio() {
 
       <Navigation activeSection={activeSection} />
       <HeroSection />
-      <AboutSection />
+      {/* <AboutSection /> */}
       <SkillsSection />
       <ProjectsSection />
       <ExperienceSection />

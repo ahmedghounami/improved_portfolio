@@ -21,7 +21,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
                         </span>
                     </motion.div>
                     <div className="hidden md:flex space-x-8">
-                        {["About", "Skills", "Projects", "Experience", "Contact"].map((item, index) => (
+                        {["Skills", "Projects", "Experience", "Contact"].map((item, index) => (
                             <motion.a
                                 key={item}
                                 href={`#${item.toLowerCase()}`}

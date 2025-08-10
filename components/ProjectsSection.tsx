@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import { Code, ExternalLink } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
+import { li } from "framer-motion/client"
 
 export default function ProjectsSection() {
     const projects = [
@@ -15,15 +17,18 @@ export default function ProjectsSection() {
             status: "In Development",
             year: "2025",
             gradient: "from-blue-400 via-blue-500 to-blue-600",
+            link: "https://github.com/ahmedghounami/aivita",
         },
         {
             title: "ft_transcendence",
             description:
-                "Full-stack web application with modern architecture, handling frontend, backend, and database management.",
+            "Full-stack web application with modern architecture, handling frontend, backend, and database management.",
             tech: ["Next.js", "Fastify", "SQLite3", "Tailwind CSS"],
-            status: "Active",
+            status: "In Development",
             year: "2025",
             gradient: "from-blue-500 via-blue-600 to-blue-700",
+            link: "https://github.com/ahmedghounami/trans",
+            
         },
         {
             title: "WebServ",
@@ -32,6 +37,7 @@ export default function ProjectsSection() {
             status: "Completed",
             year: "2025",
             gradient: "from-blue-300 via-blue-400 to-blue-500",
+            link: "https://github.com/ahmedghounami/httpserver",
         },
         {
             title: "Inception",
@@ -40,6 +46,7 @@ export default function ProjectsSection() {
             status: "Completed",
             year: "2024",
             gradient: "from-blue-600 via-blue-700 to-blue-800",
+            link: "https://github.com/ahmedghounami/42-inception"
         },
     ]
 
@@ -112,8 +119,8 @@ export default function ProjectsSection() {
                                                 whileHover={{ x: 5 }}
                                                 className="flex items-center text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
                                             >
-                                                <span className="text-sm">View Project</span>
-                                                <ExternalLink className="w-4 h-4 ml-2" />
+                                                <Link href={project.link} className="text-sm flex">View Project <ExternalLink className="w-4 h-4 ml-2" /></Link>
+                                                
                                             </motion.div>
                                         </CardContent>
                                     </div>
