@@ -1,34 +1,34 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin } from "lucide-react"
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card"
+import { Code, Server, Database } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 
-export default function ContactSection() {
-    const contacts = [
+export default function AboutSection() {
+    const features = [
         {
-            icon: <Mail className="w-6 h-6 text-blue-400" />,
-            title: "Email",
-            value: "your@email.com",
-            link: "mailto:your@email.com"
+            icon: <Code className="w-8 h-8 text-blue-400" />,
+            title: "Frontend Expert",
+            description: "Creating beautiful, responsive user interfaces with React and Next.js",
+            delay: 0.1,
         },
         {
-            icon: <Phone className="w-6 h-6 text-blue-400" />,
-            title: "Phone",
-            value: "+123 456 789",
-            link: "tel:+123456789"
+            icon: <Server className="w-8 h-8 text-blue-500" />,
+            title: "Backend Developer",
+            description: "Building robust APIs and server architectures with Node.js and Fastify",
+            delay: 0.2,
         },
         {
-            icon: <MapPin className="w-6 h-6 text-blue-400" />,
-            title: "Location",
-            value: "Your City, Country",
-            link: "https://maps.google.com"
-        }
+            icon: <Database className="w-8 h-8 text-blue-600" />,
+            title: "Database Design",
+            description: "Designing efficient database schemas with SQLite and MongoDB",
+            delay: 0.3,
+        },
     ]
 
     return (
-        <section id="contact" className="py-20 relative">
-            <div className="container mx-auto px-6">
+        <section id="about" className="py-20 relative">
+            <div className="container mx-auto px-6 max-w-6xl">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -43,46 +43,55 @@ export default function ContactSection() {
                         viewport={{ once: true }}
                         className="text-4xl md:text-6xl font-bold mb-6"
                     >
-                        <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                            Contact Me
-                        </span>
+                        <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">About Me</span>
                     </motion.h2>
-                </motion.div>
 
-                <div className="grid md:grid-cols-3 gap-8">
-                    {contacts.map((item, index) => (
-                        <motion.div
-                            key={item.title}
-                            initial={{ opacity: 0, y: 20 }}
+                    <div className="max-w-4xl mx-auto">
+                        <motion.p
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }} // ✅ index now available
+                            transition={{ duration: 0.8, delay: 0.2 }}
                             viewport={{ once: true }}
-                            whileHover={{ scale: 1.05, y: -5 }}
-                            whileTap={{ scale: 0.95 }}
+                            className="text-lg text-gray-300 mb-12 leading-relaxed"
                         >
-                            <Card className="bg-black/50 border-blue-500/20 backdrop-blur-xl hover:border-blue-400/40 transition-all duration-300 h-full">
-                                <CardHeader className="text-center">
-                                    <div className="mx-auto mb-4 p-3 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-full border border-blue-400/30">
-                                        {item.icon}
-                                    </div>
-                                    <CardTitle className="text-white text-xl">
-                                        {item.title}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <a
-                                        href={item.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-gray-300 hover:text-blue-400 transition-colors"
-                                    >
-                                        {item.value}
-                                    </a>
-                                </CardContent>
-                            </Card>
-                        </motion.div>
-                    ))}
-                </div>
+                            I'm a passionate full-stack developer currently studying at 1337 School, where I've embraced the
+                            peer-to-peer learning methodology. My journey in software development is driven by curiosity and a desire
+                            to create meaningful solutions that make a difference.
+                        </motion.p>
+
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {features.map((item, index) => (
+                                <motion.div
+                                    key={item.title}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: item.delay }}
+                                    viewport={{ once: true }}
+                                    whileHover={{ y: -10, scale: 1.02 }}
+                                    className="group"
+                                >
+                                    <Card className="bg-black/50 border-blue-900/30 backdrop-blur-xl hover:border-blue-700/50 transition-all duration-300 h-full shadow-lg hover:shadow-blue-900/50">
+                                        <CardHeader className="text-center">
+                                            <motion.div
+                                                whileHover={{ rotate: 360, scale: 1.1 }}
+                                                transition={{ duration: 0.6 }}
+                                                className="mx-auto mb-4 p-3 bg-gradient-to-r from-blue-700/20 to-blue-800/20 rounded-full border border-blue-700/30"
+                                            >
+                                                {item.icon}
+                                            </motion.div>
+                                            <CardTitle className="text-white text-xl group-hover:text-blue-400 transition-colors">
+                                                {item.title}
+                                            </CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-gray-300 text-center">{item.description}</p>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </motion.div>
             </div>
         </section>
     )
