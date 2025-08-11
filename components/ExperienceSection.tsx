@@ -11,7 +11,7 @@ export default function ExperienceSection() {
             period: "2023 - Present",
             description:
                 "Intensive peer-to-peer learning program focused on software development, algorithms, and full-stack web development.",
-            skills: ["C/C++", "Web Development", "Unix Systems", "Git", "Cybersecurity"],
+            skills: ["C/C++", "Web Development", "Algorithms", "Systems Programming", "Git"],
             type: "education",
         },
         {
