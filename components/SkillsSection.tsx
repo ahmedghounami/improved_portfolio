@@ -7,6 +7,7 @@ export default function SkillsSection() {
     const skills = [
         { name: "React/Next.js", level: 95, icon: <Code className="w-5 h-5" />, color: "from-blue-400 to-blue-600" },
         { name: "Node.js/Express/fastify", level: 90, icon: <Server className="w-5 h-5" />, color: "from-blue-500 to-blue-700" },
+        { name: "react native", level: 75, icon: <Code className="w-5 h-5" />, color: "from-blue-300 to-blue-500" },
         { name: "Database/Sqlite/Mongodb", level: 85, icon: <Database className="w-5 h-5" />, color: "from-blue-300 to-blue-500" },
         { name: "C/C++", level: 88, icon: <Code className="w-5 h-5" />, color: "from-blue-600 to-blue-800" },
         { name: "Docker", level: 80, icon: <Globe className="w-5 h-5" />, color: "from-blue-400 to-blue-600" },
