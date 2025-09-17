@@ -12,8 +12,8 @@ export default function ProjectsSection() {
         {
             title: "AIVITA",
             description:
-                "AI-powered fitness and nutrition web app that generates personalized daily workout and meal plans based on user goals.",
-            tech: ["Next.js", "TypeScript", "Fastify", "SQLite", "AI Integration"],
+                "powered fitness and nutrition web app that generates personalized daily workout and meal plans based on user goals.",
+            tech: ["Next.js", "TypeScript", "Fastify", "SQLite"],
             status: "In Development",
             year: "2025",
             gradient: "from-blue-400 via-blue-500 to-blue-600",
