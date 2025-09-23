@@ -115,7 +115,7 @@ export default function HeroSection() {
                             transition={{ delay: 0.5 }}
                             className="text-xl text-gray-300 mb-8 max-w-2xl"
                         >
-                            I specialize in crafting complete web applications with elegant code. From responsive frontends to
+                            I specialize in crafting complete web and mobile applications with elegant code. From responsive frontends to
                             powerful backends, I turn ideas into scalable digital solutions.
                         </motion.p>
 
