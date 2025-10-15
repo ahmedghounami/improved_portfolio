@@ -1,99 +1,104 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
-import Navigation from "../components/Navigation"
-import HeroSection from "../components/HeroSection"
-import AboutSection from "../components/AboutSection"
-import SkillsSection from "../components/SkillsSection"
-import ProjectsSection from "../components/ProjectsSection"
-import ExperienceSection from "../components/ExperienceSection"
-import ContactSection from "../components/ContactSection"
-import Footer from "../components/Footer"
+import type { Metadata } from "next"
+import PortfolioClient from "../components/PortfolioClient"
 
 
-export default function Portfolio() {
-  const [activeSection, setActiveSection] = useState("hero")
-  const { scrollYProgress } = useScroll()
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [1, 1.1])
+export const metadata: Metadata = {
+  metadataBase: new URL("https://ahmedghounami.vercel.app"),
+  title: {
+    default: "Ahmed Ghounami — Full-Stack Developer",
+    template: "%s | Ahmed Ghounami",
+  },
+  description:
+    "Portfolio of Ahmed Ghounami — full-stack developer specializing in React, Next.js, Node.js, React Native, and modern web applications.",
+  applicationName: "Ahmed Ghounami Portfolio",
+  category: "technology",
+  authors: [{ name: "Ahmed Ghounami", url: "https://ahmedghounami.vercel.app" }],
+  creator: "Ahmed Ghounami",
+  publisher: "Ahmed Ghounami",
+  keywords: [
+    "Ahmed Ghounami",
+    "Full-stack developer",
+    "React developer",
+    "Next.js",
+    "Node.js",
+    "React Native",
+    "Web developer portfolio",
+    "Mobile app developer",
+    "Frontend",
+    "Backend",
+    "TypeScript",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://ahmedghounami.vercel.app/",
+    siteName: "Ahmed Ghounami Portfolio",
+    title: "Ahmed Ghounami — Full-Stack Developer",
+    description:
+      "Explore projects and experience building modern web and mobile applications with React, Next.js, Node.js, and React Native.",
+    locale: "en_US",
+    images: [
+      {
+        url: "/https://cdn.intra.42.fr/users/7ec5d8829b0f0d9e26713b331df85178/aghounam.JPG",
+        width: 1200,
+        height: 630,
+        alt: "Ahmed Ghounami — Full-Stack Developer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ahmed Ghounami — Full-Stack Developer",
+    description:
+      "Projects, skills, and experience in React, Next.js, Node.js, and React Native.",
+    images: ["/https://cdn.intra.42.fr/users/7ec5d8829b0f0d9e26713b331df85178/aghounam.JPG"],
+    
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+  themeColor: "#0b1220",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    viewportFit: "cover",
+  },
+  
+  other: {
+    "github:url": "https://github.com/ahmedghounami",
+    "linkedin:url": "https://www.linkedin.com/in/ahmed-ghounami-a675b1294/",
+  },
+}
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["hero", "about", "skills", "projects", "experience", "contact"]
-      const scrollPosition = window.scrollY + 100
 
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
-  return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
-      {/* Dynamic Background */}
-      <div className="fixed inset-0 overflow-hidden">
-        <motion.div className="absolute inset-0 opacity-30" style={{ y: backgroundY, scale: scaleProgress }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-black to-blue-800/20" />
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{
-              scale: [1.2, 1, 1.2],
-              rotate: [360, 180, 0],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"
-          />
-        </motion.div>
-
-        {/* Animated Grid */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
-            `,
-              backgroundSize: "50px 50px",
-            }}
-          />
-        </div>
-      </div>
-
-      <Navigation activeSection={activeSection} />
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      <ContactSection />
-      <Footer />
-    </div>
-  )
+export default function Page() {
+  // Server component by default — nice and minimal
+  return <PortfolioClient />
 }

@@ -12,29 +12,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-export const metadata = {
-  title: "Ahmed Ghounami | Full Stack Developer Portfolio",
-  description:
-    "Portfolio of Ahmed Ghounami — full stack developer specializing in React, Next.js, Node.js,React Native, and modern web applications.",
-  keywords: [
-    "Ahmed Ghounami",
-    "full stack developer",
-    "React developer",
-    "Next.js",
-    "Node.js",
-    "web developer portfolio",
-    "mobile app developer",
-  ],
-  openGraph: {
-    title: "Ahmed Ghounami | Full Stack Developer",
-    description:
-      "Explore my projects and experience as a full stack developer building modern web applications.",
-    url: "https://ahmedghounami.vercel.app/",
-    type: "website",
-  },
+export const metadata: Metadata = {
+  title: "Ahmed Ghounami — Portfolio",
+  description: "Full Stack Web developer specializing in Next.js, React, and modern UX. Projects, skills, and experience.",
 };
-
 
 export default function RootLayout({
   children,
