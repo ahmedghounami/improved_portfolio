@@ -11,6 +11,28 @@ import ExperienceSection from "../components/ExperienceSection"
 import ContactSection from "../components/ContactSection"
 import Footer from "../components/Footer"
 
+export const metadata = {
+  title: "Ahmed Ghounami | Full Stack Developer Portfolio",
+  description:
+    "Portfolio of Ahmed Ghounami — full stack developer specializing in React, Next.js, Node.js, and modern web applications.",
+  keywords: [
+    "Ahmed Ghounami",
+    "full stack developer",
+    "React developer",
+    "Next.js",
+    "Node.js",
+    "web developer portfolio",
+  ],
+  openGraph: {
+    title: "Ahmed Ghounami | Full Stack Developer",
+    description:
+      "Explore my projects and experience as a full stack developer building modern web applications.",
+    url: "https://ahmedghounami.vercel.app/",
+    type: "website",
+  },
+};
+
+
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero")
   const { scrollYProgress } = useScroll()
