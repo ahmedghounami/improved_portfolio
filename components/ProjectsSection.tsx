@@ -5,7 +5,8 @@ import { Code, ExternalLink } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { li } from "framer-motion/client"
+import { image, li } from "framer-motion/client"
+import Image from "next/image"
 
 export default function ProjectsSection() {
     const projects = [
@@ -16,19 +17,21 @@ export default function ProjectsSection() {
             tech: ["Next.js", "TypeScript", "Fastify", "SQLite"],
             status: "In Development",
             year: "2025",
-            gradient: "from-blue-400 via-blue-500 to-blue-600",
+            
             link: "https://github.com/ahmedghounami/aivita",
+            image: "/aivita.png",
         },
         {
             title: "ft_transcendence",
             description:
-            "Full-stack web application with modern architecture, handling frontend, backend, and database management.",
+                "Full-stack web application with modern architecture, handling frontend, backend, and database management.",
             tech: ["Next.js", "Fastify", "SQLite3", "Tailwind CSS"],
             status: "In Development",
             year: "2025",
-            gradient: "from-blue-500 via-blue-600 to-blue-700",
-            link: "https://github.com/ahmedghounami/trans",
             
+            link: "https://github.com/ahmedghounami/trans",
+            image: "/trans.png",
+
         },
         {
             title: "WebServ",
@@ -36,8 +39,9 @@ export default function ProjectsSection() {
             tech: ["C++98", "HTTP Protocol", "Systems Programming"],
             status: "Completed",
             year: "2025",
-            gradient: "from-blue-300 via-blue-400 to-blue-500",
+            
             link: "https://github.com/ahmedghounami/httpserver",
+            image: "https://miro.medium.com/v2/resize:fit:1200/1*age3Dgxl8sz6LZgDIwOSNQ.png",
         },
         {
             title: "Inception",
@@ -45,8 +49,9 @@ export default function ProjectsSection() {
             tech: ["Docker", "DevOps", "Infrastructure"],
             status: "Completed",
             year: "2024",
-            gradient: "from-blue-600 via-blue-700 to-blue-800",
-            link: "https://github.com/ahmedghounami/42-inception"
+            
+            link: "https://github.com/ahmedghounami/42-inception",
+            image: "https://www.appsdeveloperblog.com/wp-content/uploads/2023/05/docker-tutorial-for-beginners.gif",
         },
     ]
 
@@ -79,15 +84,23 @@ export default function ProjectsSection() {
                             >
                                 <Card className="bg-black/50 border-blue-500/20 backdrop-blur-xl h-full hover:border-blue-400/40 transition-all duration-300 overflow-hidden">
                                     <div className="relative">
-                                        <div
-                                            className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-10 group-hover:opacity-20 transition-opacity`}
-                                        />
-                                        <CardHeader className="relative">
+                                        {/* Template image background */}
+                                        <div className="absolute inset-0 z-0">
+                                            <Image
+                                                src={project.image}
+                                                alt="Project background"
+                                                className="w-full h-full object-cover opacity-20"
+                                                width={1200}
+                                                height={630}
+                                            />
+                                            <div className={`absolute inset-0 bg-gradient-to-r opacity-60 group-hover:opacity-70 transition-opacity`} />
+                                        </div>
+                                        <CardHeader className="relative z-10">
                                             <div className="flex justify-between items-start mb-4">
                                                 <motion.div
                                                     whileHover={{ rotate: 360, scale: 1.1 }}
                                                     transition={{ duration: 0.6 }}
-                                                    className={`w-12 h-12 rounded-xl bg-gradient-to-r ${project.gradient} flex items-center justify-center shadow-lg`}
+                                                    className={`w-12 h-12 rounded-xl bg-gradient-to-r flex items-center justify-center shadow-lg`}
                                                 >
                                                     <Code className="w-6 h-6 text-white" />
                                                 </motion.div>
@@ -103,7 +116,7 @@ export default function ProjectsSection() {
                                             </CardTitle>
                                             <CardDescription className="text-gray-300">{project.description}</CardDescription>
                                         </CardHeader>
-                                        <CardContent className="relative">
+                                        <CardContent className="relative z-10">
                                             <div className="flex flex-wrap gap-2 mb-4">
                                                 {project.tech.map((tech) => (
                                                     <Badge
@@ -120,7 +133,7 @@ export default function ProjectsSection() {
                                                 className="flex items-center text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
                                             >
                                                 <Link href={project.link} className="text-sm flex">View Project <ExternalLink className="w-4 h-4 ml-2" /></Link>
-                                                
+
                                             </motion.div>
                                         </CardContent>
                                     </div>
