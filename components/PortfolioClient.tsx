@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { useEffect, useMemo, useState } from "react"
+import { motion, useScroll } from "framer-motion"
 
 import Navigation from "../components/Navigation"
 import HeroSection from "../components/HeroSection"
@@ -11,74 +11,64 @@ import ProjectsSection from "../components/ProjectsSection"
 import ExperienceSection from "../components/ExperienceSection"
 import ContactSection from "../components/ContactSection"
 import Footer from "../components/Footer"
+import AnimatedBackground from "./AnimatedBackground"
+
+const SECTION_IDS = ["hero", "about", "skills", "projects", "experience", "contact"] as const
+type SectionId = (typeof SECTION_IDS)[number]
 
 export default function PortfolioClient() {
-  const [activeSection, setActiveSection] = useState("hero")
+  const [activeSection, setActiveSection] = useState<SectionId>("hero")
   const { scrollYProgress } = useScroll()
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [1, 1.1])
 
+  // Create observers once
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["hero", "about", "skills", "projects", "experience", "contact"]
-      const scrollPosition = window.scrollY + 100
+    const observers: IntersectionObserver[] = []
+    const options: IntersectionObserverInit = { root: null, rootMargin: "0px 0px -60% 0px", threshold: 0.2 }
 
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(id)
+        })
+      }, options)
+      io.observe(el)
+      observers.push(io)
+    })
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => observers.forEach((io) => io.disconnect())
   }, [])
 
+  // Smooth progress bar scale
+  const progressScaleX = useMemo(
+    () => scrollYProgress, // you can pass through a transform if you want easing
+    [scrollYProgress]
+  )
+
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
-      {/* Dynamic Background */}
-      <div className="fixed inset-0 overflow-hidden">
-        <motion.div className="absolute inset-0 opacity-30" style={{ y: backgroundY, scale: scaleProgress }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-black to-blue-800/20" />
-          <motion.div
-            animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-            transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{ scale: [1.2, 1, 1.2], rotate: [360, 180, 0] }}
-            transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"
-          />
-        </motion.div>
+    <div className="relative min-h-screen  text-white overflow-x-hidden">
+      {/* 🔥 Single reusable animated background (behind everything) */}
+<AnimatedBackground intensity={0.85} />
 
-        {/* Animated Grid */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: "50px 50px",
-            }}
-          />
-        </div>
-      </div>
 
+      {/* Top progress bar */}
+      <motion.div
+        className="fixed left-0 top-0 h-[3px] bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 origin-left z-40"
+        style={{ scaleX: progressScaleX }}
+      />
+
+      {/* Your navigation (reads activeSection) */}
       <Navigation activeSection={activeSection} />
+
+      {/* Content sections */}
       <HeroSection />
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
       <ExperienceSection />
       <ContactSection />
+
       <Footer />
     </div>
   )

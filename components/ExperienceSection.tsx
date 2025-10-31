@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { title } from "process"
 
 export default function ExperienceSection() {
     const experiences = [
@@ -21,6 +22,15 @@ export default function ExperienceSection() {
             skills: ["React", "Node.js", "MongoDB", "API Development", "Authentication"],
             type: "course",
         },
+        {
+            title: "a2xcorp - Full-Stack Developer Intern",
+            period: "2025 - present",
+            description:
+                "Contributing to the development of web applications, collaborating with cross-functional teams, and implementing new features.",
+            skills: ["React", "Next.js", "Node.js", "Express", "Database Management"],
+            type: "work",
+        },
+
     ]
 
     return (
