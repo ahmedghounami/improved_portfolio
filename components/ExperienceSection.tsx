@@ -28,7 +28,7 @@ export default function ExperienceSection() {
             skills: ["React", "Node.js", "MongoDB", "API Development", "Authentication"],
             type: "Course",
             link: "https://www.udemy.com/",
-            image: "https://www.skillfinder.com.au/media/wysiwyg/udemylogo.png",
+            image: "/udemy.png",
         },
         {
             title: "a2xcorp",
