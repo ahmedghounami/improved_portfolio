@@ -82,33 +82,36 @@ export default function ExperienceSection() {
                                     }}
                                 />
 
-                                <Card className="bg-black/50 border-blue-900/30 backdrop-blur-xl text-left hover:border-blue-700/50 transition-all duration-300 overflow-hidden group shadow-lg hover:shadow-blue-900/50">
+                                <Card className="bg-black/70 border-blue-500/20 backdrop-blur-xl text-left hover:border-blue-400/40 transition-all duration-300 overflow-hidden group shadow-lg hover:shadow-blue-900/50">
                                     <div className="relative">
                                         {/* Template image background */}
                                         <div className="absolute inset-0 z-0">
-                                           <Image src={exp.image} alt="Experience background" className="w-full h-full object-cover opacity-40" 
+                                           <Image src={exp.image} alt="Experience background" className="w-full h-full object-cover opacity-15" 
                                            width={1200}
                                              height={630}
                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-r from-blue-700/10 to-blue-800/10 group-hover:from-blue-700/20 group-hover:to-blue-800/20 transition-all" />
+                                            {/* Stronger dark overlay for better text contrast */}
+                                            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-blue-900/40" />
+                                            <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors" />
                                         </div>
                                         <CardHeader className="relative z-10">
                                             <div className="flex justify-between items-start">
                                                 <div>
-                                                    <CardTitle className="text-white text-xl group-hover:text-blue-400 transition-colors">
+                                                    <CardTitle className="text-white text-xl font-bold group-hover:text-blue-400 transition-colors drop-shadow-lg">
                                                         {exp.title}
                                                     </CardTitle>
-                                                    <p className="text-blue-400 font-semibold">{exp.period}</p>
+                                                    <p className="text-blue-300 font-semibold drop-shadow-md">{exp.period}</p>
                                                 </div>
                                                 <Badge
                                                     variant="outline"
-                                                    className={`border-blue-700/30 ${exp.type === "education" ? "text-blue-400" : "text-blue-300"
-                                                        }`}
+                                                    className="border-blue-400/40 bg-blue-500/10 text-blue-300 backdrop-blur-sm font-medium"
                                                 >
                                                     {exp.type}
                                                 </Badge>
                                             </div>
-                                            <CardDescription className="text-gray-300 mt-4">{exp.description}</CardDescription>
+                                            <CardDescription className="text-gray-200 font-medium drop-shadow-md leading-relaxed mt-4">
+                                                {exp.description}
+                                            </CardDescription>
                                         </CardHeader>
                                         <CardContent className="relative z-10">
                                             <div className="flex flex-wrap gap-2 mb-4">
@@ -116,7 +119,7 @@ export default function ExperienceSection() {
                                                     <Badge
                                                         key={skill}
                                                         variant="secondary"
-                                                        className="bg-blue-900/30 text-blue-400 border-blue-700/30 hover:bg-blue-900/50 transition-colors"
+                                                        className="bg-blue-500/20 text-blue-300 border-blue-400/40 hover:bg-blue-400/20 transition-colors backdrop-blur-sm font-medium"
                                                     >
                                                         {skill}
                                                     </Badge>
@@ -127,7 +130,7 @@ export default function ExperienceSection() {
                                                 className="flex items-center text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
                                             >
                                                 <Link href={exp.link}
-                                                    className="text-sm flex">View Details
+                                                    className="text-sm flex font-semibold">View Details
                                                      <ExternalLink className="w-4 h-4 ml-2" /></Link>
                                                 
                                             </motion.div>

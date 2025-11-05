@@ -4,89 +4,134 @@ import { motion } from "framer-motion"
 import { Code, Server, Database, Globe, Smartphone, Wrench, GitBranch, Terminal, Cloud, Figma, Chrome, Cpu, Layers, Shield, Zap, BookOpen } from "lucide-react"
 
 export default function SkillsSection() {
-    // All skills, expertise, and tools in one array (tree)
-    const allSkills = [
-        // Frontend
-        { name: "React", icon: <Code className="w-6 h-6" />, color: "from-blue-400 to-blue-600" },
-        { name: "Next.js", icon: <Code className="w-6 h-6" />, color: "from-gray-800 to-black" },
-        { name: "JavaScript", icon: <Code className="w-6 h-6" />, color: "from-yellow-400 to-yellow-600" },
-        { name: "TypeScript", icon: <Code className="w-6 h-6" />, color: "from-sky-400 to-blue-500" },
-        { name: "HTML", icon: <Code className="w-6 h-6" />, color: "from-orange-400 to-red-500" },
-        { name: "CSS", icon: <Code className="w-6 h-6" />, color: "from-blue-400 to-indigo-600" },
-        { name: "Tailwind", icon: <Layers className="w-6 h-6" />, color: "from-cyan-400 to-blue-400" },
-        { name: "React Native", icon: <Smartphone className="w-6 h-6" />, color: "from-blue-300 to-blue-500" },
-
-        // Backend
-        { name: "Node.js", icon: <Server className="w-6 h-6" />, color: "from-green-400 to-green-700" },
-        { name: "Express", icon: <Wrench className="w-6 h-6" />, color: "from-gray-400 to-gray-600" },
-        { name: "Fastify", icon: <Server className="w-6 h-6" />, color: "from-emerald-400 to-emerald-600" },
-        { name: "Nest.js", icon: <Server className="w-6 h-6" />, color: "from-red-400 to-orange-600" },
-        { name: "REST APIs", icon: <Cloud className="w-6 h-6" />, color: "from-blue-400 to-cyan-600" },
-
-        // Databases
-        { name: "MongoDB", icon: <Database className="w-6 h-6" />, color: "from-green-400 to-green-700" },
-        { name: "PostgreSQL", icon: <Database className="w-6 h-6" />, color: "from-blue-500 to-blue-800" },
-        { name: "MySQL", icon: <Database className="w-6 h-6" />, color: "from-yellow-500 to-orange-600" },
-        { name: "SQLite", icon: <Database className="w-6 h-6" />, color: "from-gray-400 to-gray-600" },
-        { name: "Supabase", icon: <Database className="w-6 h-6" />, color: "from-purple-400 to-pink-500" },
-
-        // DevOps & Tools
-        { name: "Docker", icon: <Globe className="w-6 h-6" />, color: "from-blue-400 to-cyan-600" },
-        { name: "Nginx", icon: <Server className="w-6 h-6" />, color: "from-green-500 to-green-800" },
-        { name: "Git", icon: <GitBranch className="w-6 h-6" />, color: "from-gray-400 to-gray-700" },
-        { name: "Linux", icon: <Terminal className="w-6 h-6" />, color: "from-gray-500 to-gray-900" },
-        { name: "Figma", icon: <Figma className="w-6 h-6" />, color: "from-pink-400 to-orange-400" },
-        { name: "X code", icon: <Chrome className="w-6 h-6" />, color: "from-blue-400 to-blue-600" },
-        { name: "Visual Studio Code", icon: <BookOpen className="w-6 h-6" />, color: "from-blue-400 to-blue-600" },
-        { name: "Expo", icon: <Zap className="w-6 h-6" />, color: "from-yellow-400 to-orange-500" },
-
-        // Other languages
-        { name: "C", icon: <Cpu className="w-6 h-6" />, color: "from-blue-600 to-indigo-800" },
-        { name: "C++", icon: <Cpu className="w-6 h-6" />, color: "from-violet-600 to-purple-800" },
-
+    // Categorized skills
+    const skillCategories = [
+        {
+            title: "FRONTEND",
+            skills: [
+                { name: "React.js", icon: <Code className="w-5 h-5" /> },
+                { name: "Next.js", icon: <Code className="w-5 h-5" /> },
+                { name: "TypeScript", icon: <Code className="w-5 h-5" /> },
+                { name: "JavaScript", icon: <Code className="w-5 h-5" /> },
+                { name: "Tailwind CSS", icon: <Layers className="w-5 h-5" /> },
+                { name: "Framer Motion", icon: <Zap className="w-5 h-5" /> },
+                { name: "React Native", icon: <Smartphone className="w-5 h-5" /> },
+                { name: "HTML5", icon: <Code className="w-5 h-5" /> },
+                { name: "CSS3", icon: <Layers className="w-5 h-5" /> },
+            ]
+        },
+        {
+            title: "BACKEND",
+            skills: [
+                { name: "Node.js", icon: <Server className="w-5 h-5" /> },
+                { name: "Express.js", icon: <Wrench className="w-5 h-5" /> },
+                { name: "Fastify", icon: <Server className="w-5 h-5" /> },
+                { name: "REST APIs", icon: <Cloud className="w-5 h-5" /> },
+            ]
+        },
+        {
+            title: "DATABASES",
+            skills: [
+                { name: "MongoDB", icon: <Database className="w-5 h-5" /> },
+                { name: "PostgreSQL", icon: <Database className="w-5 h-5" /> },
+                { name: "MySQL", icon: <Database className="w-5 h-5" /> },
+                { name: "SQLite", icon: <Database className="w-5 h-5" /> },
+                { name: "Supabase", icon: <Database className="w-5 h-5" /> },
+            ]
+        },
+        {
+            title: "DEVOPS & TOOLS",
+            skills: [
+                { name: "Docker", icon: <Globe className="w-5 h-5" /> },
+                { name: "Nginx", icon: <Server className="w-5 h-5" /> },
+                { name: "Git", icon: <GitBranch className="w-5 h-5" /> },
+                { name: "GitHub", icon: <Globe className="w-5 h-5" /> },
+                { name: "Linux", icon: <Terminal className="w-5 h-5" /> },
+                { name: "VS Code", icon: <BookOpen className="w-5 h-5" /> },
+                { name: "Postman", icon: <Cloud className="w-5 h-5" /> },
+                { name: "Figma", icon: <Figma className="w-5 h-5" /> },
+            ]
+        },
+        {
+            title: "PROGRAMMING LANGUAGES",
+            skills: [
+                { name: "C", icon: <Cpu className="w-5 h-5" /> },
+                { name: "C++", icon: <Cpu className="w-5 h-5" /> },
+                { name: "C++98", icon: <Cpu className="w-5 h-5" /> },
+            ]
+        },
     ];
 
     return (
-        <section id="skills" className="py-20 relative">
-            <div className="container mx-auto px-6 max-w-4xl">
-                <div className="text-center mb-14">
+        <section id="skills" className="py-16 relative">
+            <div className="container mx-auto px-6 max-w-6xl">
+                <div className="text-center mb-8">
                     <motion.h2
                         initial={{ opacity: 0, scale: 0.5 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-6xl font-bold mb-6"
+                        className="text-4xl md:text-6xl font-bold mb-4"
                     >
-                        <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">My Skills & Tools</span>
+                        <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                            Technologies & Stacks
+                        </span>
                     </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        viewport={{ once: true }}
-                        className="text-lg text-gray-300 leading-relaxed"
-                    >
-                        A showcase of my technical skills and the tools I use to build efficient and scalable applications.
-                    </motion.p>
-
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-6 rounded-xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 shadow hover:shadow-blue-900/30 p-6">
-                    {allSkills.map((item, idx) => (
-                        <motion.div
-                            key={item.name}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: idx * 0.05 }}
-                            viewport={{ once: true }}
-                            className="flex group flex-col items-center w-22   cursor-pointer transition-transform hover:scale-105"
-                        >
-                            <div className={`mb-1 p-2 rounded-lg bg-gradient-to-r ${item.color} shadow-md flex items-center justify-center`}>{item.icon}</div>
-                            <span className="text-xs group-hover:text-blue-400 text-center font-semibold"
-                            >{item.name}</span>
-                        </motion.div>
-                    ))}
-                </div>
+                {/* Skills Grid - Wrapped in Card */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="bg-black/50 border border-blue-500/20 backdrop-blur-xl rounded-2xl p-6 md:p-8 shadow-2xl hover:border-blue-400/30 transition-all duration-300"
+                >
+                    <div className="space-y-6">
+                        {skillCategories.map((category, categoryIndex) => (
+                            <motion.div
+                                key={category.title}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+                                viewport={{ once: true }}
+                                className="space-y-3"
+                            >
+                                {/* Category Title - Centered */}
+                                <h3 className="text-base font-bold text-gray-400 tracking-wider text-center">
+                                    {category.title}
+                                </h3>
+
+                                {/* Skills Row - Centered */}
+                                <div className="flex flex-wrap gap-2.5 justify-center">
+                                    {category.skills.map((skill, skillIndex) => (
+                                        <motion.div
+                                            key={skill.name}
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            transition={{ 
+                                                duration: 0.4, 
+                                                delay: categoryIndex * 0.1 + skillIndex * 0.05 
+                                            }}
+                                            viewport={{ once: true }}
+                                            whileHover={{ scale: 1.05, y: -5 }}
+                                            className="group"
+                                        >
+                                            <div className="flex items-center gap-2.5 px-4 py-2 bg-black/40 border border-blue-500/20 rounded-lg backdrop-blur-sm hover:border-blue-400/40 hover:bg-black/60 transition-all duration-300 cursor-pointer">
+                                                <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
+                                                    {skill.icon}
+                                                </div>
+                                                <span className="text-white group-hover:text-blue-400 transition-colors font-medium text-sm">
+                                                    {skill.name}
+                                                </span>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
             </div>
         </section>
     )
