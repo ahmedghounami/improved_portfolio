@@ -86,13 +86,13 @@ export default function ExperienceSection() {
                                     <div className="relative">
                                         {/* Template image background */}
                                         <div className="absolute inset-0 z-0">
-                                           <Image src={exp.image} alt="Experience background" className="w-full h-full object-cover opacity-15" 
+                                           <Image src={exp.image} alt="Experience background" className="w-full h-full object-cover opacity-30" 
                                            width={1200}
                                              height={630}
                                            />
-                                            {/* Stronger dark overlay for better text contrast */}
-                                            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-blue-900/40" />
-                                            <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors" />
+                                            {/* Dark overlay for text contrast - lighter to show background */}
+                                            <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-blue-900/30" />
+                                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/35 transition-colors" />
                                         </div>
                                         <CardHeader className="relative z-10">
                                             <div className="flex justify-between items-start">
