@@ -88,47 +88,29 @@ export default function SkillsSection() {
                     className="bg-black/50 border border-blue-500/20 backdrop-blur-xl rounded-2xl p-6 md:p-8 shadow-2xl hover:border-blue-400/30 transition-all duration-300"
                 >
                     <div className="space-y-6">
-                        {skillCategories.map((category, categoryIndex) => (
-                            <motion.div
-                                key={category.title}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-                                viewport={{ once: true }}
-                                className="space-y-3"
-                            >
+                        {skillCategories.map((category) => (
+                            <div key={category.title} className="space-y-3">
                                 {/* Category Title - Centered */}
                                 <h3 className="text-base font-bold text-gray-400 tracking-wider text-center">
                                     {category.title}
                                 </h3>
 
-                                {/* Skills Row - Centered */}
+                                {/* Skills Row - Centered (simple appearance, small hover only) */}
                                 <div className="flex flex-wrap gap-2.5 justify-center">
-                                    {category.skills.map((skill, skillIndex) => (
-                                        <motion.div
-                                            key={skill.name}
-                                            initial={{ opacity: 0, scale: 0.8 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
-                                            transition={{ 
-                                                duration: 0.4, 
-                                                delay: categoryIndex * 0.1 + skillIndex * 0.05 
-                                            }}
-                                            viewport={{ once: true }}
-                                            whileHover={{ scale: 1.05, y: -5 }}
-                                            className="group"
-                                        >
-                                            <div className="flex items-center gap-2.5 px-4 py-2 bg-black/40 border border-blue-500/20 rounded-lg backdrop-blur-sm hover:border-blue-400/40 hover:bg-black/60 transition-all duration-300 cursor-pointer">
-                                                <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
+                                    {category.skills.map((skill) => (
+                                        <div key={skill.name} className="group">
+                                            <div className="flex items-center gap-2.5 px-4 py-2 bg-black/40 border border-blue-500/20 rounded-lg backdrop-blur-sm hover:border-blue-400/30 hover:bg-black/55 transition-colors duration-200 cursor-pointer">
+                                                <div className="text-blue-400">
                                                     {skill.icon}
                                                 </div>
-                                                <span className="text-white group-hover:text-blue-400 transition-colors font-medium text-sm">
+                                                <span className="text-white text-sm font-medium">
                                                     {skill.name}
                                                 </span>
                                             </div>
-                                        </motion.div>
+                                        </div>
                                     ))}
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </motion.div>
