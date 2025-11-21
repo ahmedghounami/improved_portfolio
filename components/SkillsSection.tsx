@@ -88,8 +88,16 @@ export default function SkillsSection() {
                     className="bg-black/50 border border-blue-500/20 backdrop-blur-xl rounded-2xl p-6 md:p-8 shadow-2xl hover:border-blue-400/30 transition-all duration-300"
                 >
                     <div className="space-y-6">
-                        {skillCategories.map((category) => (
-                            <div key={category.title} className="space-y-3">
+                        {skillCategories.map((category, categoryIndex) => (
+                            <motion.div
+                                key={category.title}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: categoryIndex * 0.12 }}
+                                viewport={{ once: true }}
+                                style={{ willChange: 'transform, opacity' }}
+                                className="space-y-3"
+                            >
                                 {/* Category Title - Centered */}
                                 <h3 className="text-base font-bold text-gray-400 tracking-wider text-center">
                                     {category.title}
@@ -110,7 +118,7 @@ export default function SkillsSection() {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </motion.div>
